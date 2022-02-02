@@ -3,21 +3,27 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons, MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
-
+import { ColorSchemeName, Platform, View, Text, SafeAreaView } from 'react-native';
+import {
+  createDrawerNavigator,
+  DrawerItemList,
+} from "@react-navigation/drawer";
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import ModalScreen from '../screens/ModalScreen';
-import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import BelanceScreen from '../screens/BelanceScreen';
+import HomeScreen from '../screens/HomeScreen';
+import CardScreen from '../screens/CardScreen';
+import LoginScreen from '../screens/LoginScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+
+
+
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -38,10 +44,10 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="Login" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name="Belance" component={BelanceScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -58,50 +64,116 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
+        name="Home"
+        component={HomeScreen}
+        options={{ title: 'HomeScreen', tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" size={35} color={color} />, }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="Belance"
+        component={LoginScreen}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'BelanceScreen',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="currency-usd" size={35} color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Card"
+        component={LoginScreen}
+        options={{
+          title: 'CardScreen',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="cart" size={35} color={color} />,
         }}
       />
     </BottomTab.Navigator>
   );
 }
 
+//Drawer Stack Navigator for show drawer and navigate
+const DrawerNavigator = createDrawerNavigator();
+export const AppDrawerNavigator = () => {
+  return (
+    <DrawerNavigator.Navigator
+      drawerContent={(props: any) => {
+        return (
+          <View style={{ flex: 1, paddingTop: 20, backgroundColor: "#222" }}>
+            <SafeAreaView forceInset={{ top: "always", horizontal: "never" }}>
+              {/* <Image
+                style={{
+                  width: 200,
+                  height: 200,
+                  marginLeft: 30,
+                  marginBottom: 20,
+                  marginTop: 30,
+                  borderRadius: 100,
+                }}
+                source={require("../assets/images/netflixx.png")}
+              /> */}
+              <DrawerItemList {...props} />
+
+            </SafeAreaView>
+          </View>
+        );
+      }}
+      screenOptions={{
+        drawerActiveTintColor: Colors.primary,
+        headerStyle: { backgroundColor: "#222" },
+        headerTintColor: "white",
+        drawerInactiveTintColor: "#ddd",
+      }}
+    >
+      <DrawerNavigator.Screen
+        name="NETFLIX"
+        component={HomeScreen}
+        options={{
+          drawerIcon: (props: any) => (
+            <Ionicons
+              name={Platform.OS === "android" ? "home" : "ios-home"}
+              size={23}
+              color={props.color}
+            />
+          ),
+          headerTitleStyle: { color: Colors.primary },
+        }}
+      />
+      <DrawerNavigator.Screen
+        name="Belance"
+        component={BelanceScreen}
+        options={{
+          drawerIcon: (props: any) => (
+            <Ionicons
+              name={Platform.OS === "android" ? "search" : "ios-search"}
+              size={23}
+              color={props.color}
+            />
+          ),
+        }}
+      />
+
+      <DrawerNavigator.Screen
+        name="CardScreen"
+        component={CardScreen}
+        options={{
+          drawerIcon: (props: any) => (
+            <MaterialIcons
+              name={
+                Platform.OS === "android" ? "video-library" : "video-library"
+              }
+              size={23}
+              color={props.color}
+            />
+          ),
+        }}
+      />
+    </DrawerNavigator.Navigator>
+  );
+};
+
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}
+
