@@ -1,13 +1,20 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Text, View } from '../components/Themed';
+
 import { RootStackScreenProps } from '../types';
+import { Card, HStack, VStack, Text, View } from 'native-base';
+import CardComponent from '../components/CardComponent';
+
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>This screen doesn't exist.</Text>
-    </View>
+
+    <CardComponent />
+
+
+
+
+
   );
 }
 

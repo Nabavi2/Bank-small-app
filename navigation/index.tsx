@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome, MaterialCommunityIcons, MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons, MaterialIcons, Ionicons, Entypo } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -20,8 +20,9 @@ import BelanceScreen from '../screens/BelanceScreen';
 import HomeScreen from '../screens/HomeScreen';
 import CardScreen from '../screens/CardScreen';
 import LoginScreen from '../screens/LoginScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { HomeParamList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import { Icon } from 'native-base';
 
 
 
@@ -40,13 +41,13 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
  * A root stack navigator is often used for displaying modals on top of all other content.
  * https://reactnavigation.org/docs/modal
  */
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<HomeParamList>();
 
 function RootNavigator() {
   return (
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Login" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="Card" component={AppDrawerNavigator} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="Home" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="Card" component={CardScreen} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Belance" component={BelanceScreen} />
       </Stack.Group>
@@ -76,16 +77,18 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Belance"
-        component={LoginScreen}
+        component={BelanceScreen}
         options={{
           title: 'BelanceScreen',
+
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="currency-usd" size={35} color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Card"
-        component={LoginScreen}
+        component={CardScreen}
         options={{
+          headerShown: false,
           title: 'CardScreen',
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="cart" size={35} color={color} />,
         }}
