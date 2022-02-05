@@ -9,8 +9,8 @@ import { Text } from 'react-native';
 export default function CardScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: '#000', }}>
-      <VStack style={{ marginTop: 25, }}>
-        <HStack style={{ justifyContent: 'space-between' }}>
+      <VStack style={{ marginTop: 25, marginBottom: 20 }}>
+        <HStack style={{ justifyContent: 'space-between', marginHorizontal: 20 }}>
           <Ionicons name="chevron-back" size={24} color="#FFF" />
           <Entypo name="dots-three-vertical" size={24} color="#FFF" />
         </HStack>
