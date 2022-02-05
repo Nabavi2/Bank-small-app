@@ -6,8 +6,9 @@
 import { FontAwesome, MaterialCommunityIcons, MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ColorSchemeName, Platform, View, Text, SafeAreaView } from 'react-native';
 import {
   createDrawerNavigator,
@@ -43,9 +44,9 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Login" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="Card" component={AppDrawerNavigator} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Belance" component={BelanceScreen} />
       </Stack.Group>
