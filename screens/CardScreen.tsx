@@ -3,15 +3,16 @@ import CardComponent from '../components/CardComponent';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { HStack, View, VStack, Box } from 'native-base';
-import { Entypo, Ionicons, FontAwesome5, MaterialIcons, SimpleLineIcons } from '@expo/vector-icons';
+import { Entypo, Ionicons, FontAwesome5, MaterialIcons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 import { Text, Card } from 'native-base';
 import { Dimensions } from 'react-native';
 import Colors from '../constants/Colors';
+import SmallCardComponet from '../components/SmallCardComponet';
 
 export default function CardScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: '#000', }}>
-      <VStack style={{ marginTop: 25, marginBottom: 20 }}>
+      <VStack style={{ marginTop: 15, marginBottom: 10 }}>
         <HStack style={{ justifyContent: 'space-between', marginHorizontal: 20 }}>
           <Ionicons name="chevron-back" size={24} color="#FFF" />
           <Entypo name="dots-three-vertical" size={24} color="#FFF" />
@@ -25,7 +26,7 @@ export default function CardScreen() {
               You have 3 active cards
             </Box>
           </VStack>
-          <View style={{ width: 50, height: 50, borderRadius: 25, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center' }}>
+          <View style={{ width: 50, height: 50, borderRadius: 25, backgroundColor: "#e6e665", alignItems: 'center', justifyContent: 'center' }}>
             <FontAwesome5 name="plus" size={24} color="black" />
           </View>
         </HStack>
@@ -40,6 +41,34 @@ export default function CardScreen() {
       }}>
         Recent transaction
       </Box>
+      <Card style={styles.card}>
+        <HStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+            <MaterialCommunityIcons name="briefcase-variant" size={24} color={Colors.light0} />
+            <View style={{ flexDirection: 'column' }}>
+
+              <Box _text={{
+                fontSize: 20,
+                fontWeight: "medium",
+                color: Colors.white,
+                ml: 10
+              }}>
+                KFC
+              </Box>
+              <Box _text={{
+                fontSize: 12,
+                fontWeight: "medium",
+                color: Colors.light0,
+                ml: 10
+              }}>
+                jun 26
+              </Box>
+
+            </View>
+          </View>
+          <Text fontSize="sm" color={Colors.light0}>$2010</Text>
+        </HStack>
+      </Card>
       <Card style={styles.card}>
         <HStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -69,7 +98,6 @@ export default function CardScreen() {
         </HStack>
       </Card>
 
-
     </View>
 
   );
@@ -92,7 +120,7 @@ const styles = StyleSheet.create({
   },
   card: {
     alignSelf: 'center',
-    width: Dimensions.get('window').width * 0.85,
+    width: Dimensions.get('window').width * 0.89,
     height: Dimensions.get('window').height * 0.12,
     margin: 10,
     backgroundColor: Colors.primary,
