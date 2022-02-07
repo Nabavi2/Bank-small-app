@@ -97,7 +97,7 @@ export default function CardScreen() {
           <Text fontSize="sm" color={Colors.light0}>$2010</Text>
         </HStack>
       </Card>
-
+      <SmallCardComponet />
     </View>
 
   );
