@@ -81,6 +81,7 @@ function BottomTabNavigator() {
         component={BelanceScreen}
         options={{
           title: 'BelanceScreen',
+          headerShown: false,
 
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="currency-usd" size={35} color={color} />,
         }}

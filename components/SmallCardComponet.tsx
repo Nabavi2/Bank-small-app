@@ -18,7 +18,7 @@ function SmallCardComponet() {
                             color: Colors.white,
                             ml: 10
                         }}>
-                            KFC
+                            Car Repair
                         </Box>
                         <Box _text={{
                             fontSize: 12,
@@ -26,12 +26,12 @@ function SmallCardComponet() {
                             color: Colors.light0,
                             ml: 10
                         }}>
-                            jun 26
+                            Aug 12
                         </Box>
 
                     </View>
                 </View>
-                <Text fontSize="sm" color={Colors.light0}>$2010</Text>
+                <Text fontSize="sm" color={Colors.light0}>$400</Text>
             </HStack>
         </Card>
 

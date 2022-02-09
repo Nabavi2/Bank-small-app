@@ -81,7 +81,7 @@ export default function CardScreen() {
                 color: Colors.white,
                 ml: 10
               }}>
-                KFC
+                Paypal
               </Box>
               <Box _text={{
                 fontSize: 12,
@@ -89,12 +89,12 @@ export default function CardScreen() {
                 color: Colors.light0,
                 ml: 10
               }}>
-                jun 26
+                Feb 23
               </Box>
 
             </View>
           </View>
-          <Text fontSize="sm" color={Colors.light0}>$2010</Text>
+          <Text fontSize="sm" color={Colors.light0}>$200</Text>
         </HStack>
       </Card>
       <SmallCardComponet />
