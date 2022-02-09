@@ -12,7 +12,7 @@ export default function BelanceScreen() {
         <Fontisto name="person" size={30} color={Colors.white} />
       </HStack>
       <Box _text={styles.title}> Your Belance </Box>
-      {/* <Card style={styles.card}>
+      <Card style={styles.card}>
         <HStack style={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
             <View style={{ flexDirection: 'column' }}>
@@ -38,7 +38,7 @@ export default function BelanceScreen() {
           </View>
           <Text fontSize="sm" color={Colors.white} mt={10}>Jun 15</Text>
         </HStack>
-      </Card> */}
+      </Card>
     </View>
   );
 }
