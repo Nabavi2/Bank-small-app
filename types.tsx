@@ -35,7 +35,7 @@ export type HomeParamList = {
   Home: undefined;
   Belance: undefined;
   Card: undefined;
-  Loign: undefined;
+  Login: undefined;
 }
 
 
