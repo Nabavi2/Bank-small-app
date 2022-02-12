@@ -6,6 +6,7 @@ export default {
   white: "#FFF",
   black: "#000",
   light0: "#a3a7ad",
+  secondary:"#844deb",
   light: {
     text: "#000",
     background: "#fff",

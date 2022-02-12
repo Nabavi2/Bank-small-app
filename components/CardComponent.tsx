@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width * 0.9,
         height: Dimensions.get('window').height * 0.26,
         margin: 10,
-        backgroundColor: '#844deb',
+        backgroundColor: Colors.secondary,
         borderRadius: 20,
     }
 })

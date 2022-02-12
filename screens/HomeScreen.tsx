@@ -2,19 +2,13 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 
 
 import { RootStackScreenProps } from '../types';
-import { Card, HStack, VStack, Text, View } from 'native-base';
+import { Box, Card, HStack, VStack, Text, View } from 'native-base';
 import CardComponent from '../components/CardComponent';
 
 
 export default function HomeScreen() {
   return (
-
-    <CardComponent />
-
-
-
-
-
+    <Box _text={{ alignSelf: 'center', fontSize: 'lg', justifyContent: 'center', marginTop: 100 }}>This is Home screen</Box>
   );
 }
 

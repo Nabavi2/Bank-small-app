@@ -45,12 +45,14 @@ const Stack = createNativeStackNavigator<HomeParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName="Login">
       <Stack.Screen name="Home" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="Card" component={CardScreen} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Belance" component={BelanceScreen} />
       </Stack.Group>
+      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+
     </Stack.Navigator>
   );
 }
@@ -69,12 +71,13 @@ function BottomTabNavigator() {
       initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors.white,
-        tabBarStyle: { backgroundColor: Colors.black }
+        tabBarStyle: { backgroundColor: Colors.black, }
+
       }}>
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
-        options={{ title: 'HomeScreen', tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" size={35} color={color} />, }}
+        options={{ title: 'HomeScreen', headerShown: false, tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" size={35} color={color} />, }}
       />
       <BottomTab.Screen
         name="Belance"

@@ -3,6 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { HStack, View, VStack, Box, Card, Text } from 'native-base';
 import { AntDesign, MaterialIcons, Fontisto, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../constants/Colors'
+import GraphComponent from '../components/GraphComponent';
 
 export default function BelanceScreen() {
   return (
@@ -101,6 +102,7 @@ export default function BelanceScreen() {
           Jun
         </Box>
       </HStack>
+      <GraphComponent />
     </View>
   );
 }
@@ -109,6 +111,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.black,
+
   },
   title: {
     marginTop: 30,
@@ -136,11 +139,13 @@ const styles = StyleSheet.create({
   viewContainer: {
     alignItems: 'center',
     justifyContent: 'space-around',
+    marginTop: 5,
 
   },
   text: {
     fontSize: 15,
     color: Colors.white,
     marginLeft: 3,
+    marginBottom: 4
   }
 });
