@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Dimensions } from 'react-native';
 import { HStack, View, VStack, Box, Card, Text } from 'native-base';
-import { AntDesign, MaterialIcons, Fontisto } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons, Fontisto, MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../constants/Colors'
 
 export default function BelanceScreen() {
@@ -56,35 +56,25 @@ export default function BelanceScreen() {
           </View>
         </View>
         <View style={styles.iconView}>
-          <AntDesign name="arrowup" size={24} color="#89b0a8" />
+          <MaterialCommunityIcons name="arrow-collapse-up" size={24} color="#89b0a8" />
+
+          {/* <AntDesign name="arrowup" size={24} color="#89b0a8" /> */}
         </View>
       </HStack>
-      {/* <HStack style={[{ ...styles.viewContainer, marginTop: 5, marginHorizontal: 15 }]}>
-        <Box _text={{
-          fontSize: 18,
-          color: Colors.white,
-        }}>
-          sent
+      <HStack style={[{ ...styles.viewContainer, marginTop: 5, marginHorizontal: 15 }]}>
+        <Box _text={styles.text}>
+          Sent
         </Box>
-        <Box _text={{
-          fontSize: 18,
-          color: Colors.white,
-        }}>
-          sent
+        <Box _text={styles.text}>
+          Receive
         </Box>
-        <Box _text={{
-          fontSize: 18,
-          color: Colors.white,
-        }}>
-          sent
+        <Box _text={styles.text}>
+          Loan
         </Box>
-        <Box _text={{
-          fontSize: 18,
-          color: Colors.white,
-        }}>
-          sent
+        <Box _text={styles.text}>
+          Topup
         </Box>
-      </HStack> */}
+      </HStack>
     </View>
   );
 }
@@ -110,10 +100,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   iconView: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     backgroundColor: Colors.primary,
-    borderRadius: 15,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -121,5 +111,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
 
+  },
+  text: {
+    fontSize: 15,
+    color: Colors.white,
+    marginLeft: 3,
   }
 });
