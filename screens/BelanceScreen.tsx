@@ -1,15 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Dimensions } from 'react-native';
 import { HStack, View, VStack, Box, Card, Text } from 'native-base';
-import { AntDesign, MaterialIcons, Fontisto, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons, Fontisto, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../constants/Colors'
 
 export default function BelanceScreen() {
   return (
     <View style={styles.container}>
-      <HStack style={{ alignItems: 'center', justifyContent: 'space-between', margin: 25 }}>
+      <HStack style={{ alignItems: 'center', justifyContent: 'space-between', marginHorizontal: 25, marginTop: 25 }}>
         <MaterialIcons name="menu-open" size={27} color={Colors.white} />
-        <Fontisto name="person" size={30} color={Colors.white} />
+        <Ionicons name="md-person-circle-outline" size={45} color="#ebd10c" />
       </HStack>
       <Box _text={styles.title}> Your Belance </Box>
       <Card style={styles.card}>
@@ -61,7 +61,7 @@ export default function BelanceScreen() {
           {/* <AntDesign name="arrowup" size={24} color="#89b0a8" /> */}
         </View>
       </HStack>
-      <HStack style={[{ ...styles.viewContainer, marginTop: 5, marginHorizontal: 15 }]}>
+      <HStack style={[{ ...styles.viewContainer, marginTop: 5, marginHorizontal: 15, paddingRight: 6 }]}>
         <Box _text={styles.text}>
           Sent
         </Box>
@@ -73,6 +73,32 @@ export default function BelanceScreen() {
         </Box>
         <Box _text={styles.text}>
           Topup
+        </Box>
+      </HStack>
+      <HStack style={{ alignItems: 'center', justifyContent: 'space-between', margin: 25 }}>
+        <Box _text={{ fontSize: 25, color: Colors.white, fontWeight: 'bold' }} >Activities</Box>
+        <View style={{ height: 40, width: 110, borderRadius: 30, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.primary }}>
+          <Box>This Week</Box>
+        </View>
+      </HStack>
+      <HStack style={[{ ...styles.viewContainer, marginTop: 5, marginHorizontal: 15, paddingRight: 15 }]}>
+        <Box _text={styles.text}>
+          Jan
+        </Box>
+        <Box _text={styles.text}>
+          Feb
+        </Box>
+        <Box _text={styles.text}>
+          Mar
+        </Box>
+        <Box _text={styles.text}>
+          Apr
+        </Box>
+        <Box _text={styles.text}>
+          May
+        </Box>
+        <Box _text={styles.text}>
+          Jun
         </Box>
       </HStack>
     </View>
