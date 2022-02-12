@@ -23,23 +23,23 @@ export default function BelanceScreen() {
                 color: Colors.white,
                 ml: 10
               }}>
-                Total amount
+                Jun 16, 2022
               </Box>
               <Box _text={{
                 fontSize: 33,
                 fontWeight: "bold",
                 color: Colors.white,
-                ml: 10
+                ml: 5
               }}>
                 $1020203.09
               </Box>
 
             </View>
           </View>
-
-          <Text fontSize="sm" color={Colors.white} mt={10}>15%</Text>
-          <AntDesign name="arrowup" size={24} color={Colors.white} />
-
+          <View style={{ flexDirection: 'row', paddingTop: 10, alignItems: 'center', justifyContent: 'center', height: 30, width: 50 }}>
+            <Box _text={{ fontSize: 16, color: Colors.white, }}>15%</Box>
+            <AntDesign name="arrowup" size={24} color={Colors.white} style={{ marginLeft: 4, marginRight: 5 }} />
+          </View>
         </HStack>
       </Card>
       <HStack style={[{ ...styles.viewContainer }, { marginTop: 15, marginHorizontal: 15 }]}>
@@ -51,10 +51,12 @@ export default function BelanceScreen() {
           <AntDesign name="arrowdown" size={24} color="#30f230" />
         </View>
         <View style={styles.iconView}>
-          <AntDesign name="arrowup" size={24} color="black" />
+          <View style={{ height: 28, width: 30, borderRadius: 6, alignItems: 'center', justifyContent: 'center', borderColor: '#ebd10c', borderWidth: 2, }}>
+            <Text style={{ fontSize: 22, color: "#ebd10c", alignSelf: 'center', marginTop: 2 }}>$</Text>
+          </View>
         </View>
         <View style={styles.iconView}>
-          <AntDesign name="arrowup" size={24} color="black" />
+          <AntDesign name="arrowup" size={24} color="#89b0a8" />
         </View>
       </HStack>
       {/* <HStack style={[{ ...styles.viewContainer, marginTop: 5, marginHorizontal: 15 }]}>
