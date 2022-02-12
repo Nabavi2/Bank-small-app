@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Dimensions } from 'react-native';
 import { HStack, View, VStack, Box, Card, Text } from 'native-base';
-import { SimpleLineIcons, MaterialIcons, Fontisto } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons, Fontisto } from '@expo/vector-icons';
 import Colors from '../constants/Colors'
 
 export default function BelanceScreen() {
@@ -36,9 +36,53 @@ export default function BelanceScreen() {
 
             </View>
           </View>
-          <Text fontSize="sm" color={Colors.white} mt={10}>Jun 15</Text>
+
+          <Text fontSize="sm" color={Colors.white} mt={10}>15%</Text>
+          <AntDesign name="arrowup" size={24} color={Colors.white} />
+
         </HStack>
       </Card>
+      <HStack style={[{ ...styles.viewContainer }, { marginTop: 15, marginHorizontal: 15 }]}>
+        <View style={styles.iconView}>
+          <AntDesign name="arrowup" size={28} color="#f53b95" />
+        </View>
+
+        <View style={styles.iconView}>
+          <AntDesign name="arrowdown" size={24} color="#30f230" />
+        </View>
+        <View style={styles.iconView}>
+          <AntDesign name="arrowup" size={24} color="black" />
+        </View>
+        <View style={styles.iconView}>
+          <AntDesign name="arrowup" size={24} color="black" />
+        </View>
+      </HStack>
+      {/* <HStack style={[{ ...styles.viewContainer, marginTop: 5, marginHorizontal: 15 }]}>
+        <Box _text={{
+          fontSize: 18,
+          color: Colors.white,
+        }}>
+          sent
+        </Box>
+        <Box _text={{
+          fontSize: 18,
+          color: Colors.white,
+        }}>
+          sent
+        </Box>
+        <Box _text={{
+          fontSize: 18,
+          color: Colors.white,
+        }}>
+          sent
+        </Box>
+        <Box _text={{
+          fontSize: 18,
+          color: Colors.white,
+        }}>
+          sent
+        </Box>
+      </HStack> */}
     </View>
   );
 }
@@ -62,5 +106,18 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: Colors.primary,
     borderRadius: 20,
+  },
+  iconView: {
+    width: 50,
+    height: 50,
+    backgroundColor: Colors.primary,
+    borderRadius: 15,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  viewContainer: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+
   }
 });
