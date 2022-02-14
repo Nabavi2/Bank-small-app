@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import { ScrollView } from 'native-base'
+import { ScrollView, Box } from 'native-base'
 import { Text } from "../components/Themed";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -82,6 +82,8 @@ function LoginScreen() {
       </View>
     );
   }
+  let login = "Login";
+  let signUp = "signUp";
   return (
     <ScrollView style={{ backgroundColor: "#000" }}>
       <View style={styles.screen}>
@@ -94,12 +96,11 @@ function LoginScreen() {
           }}
           source={require("../assets/images/nt.png")}
         /> */}
-        <Text style={{ color: "#FFF", fontSize: 30, marginBottom: "15%", fontWeight: 'bold', marginTop: 100 }}>
-          Wilcome
+        <Text style={{ color: "#FFF", fontSize: 35, marginBottom: "15%", fontWeight: 'bold', marginTop: 100 }}>
+          Welcome
         </Text>
-        <Text style={{ color: "#FFF", fontSize: 20, marginBottom: "15%" }}>
-          Start your free one month trial
-        </Text>
+        <Text style={{ color: "#FFF", fontSize: 20, marginBottom: "15%", alignSelf: 'center', marginHorizontal: 30, }}>
+          Start your business on this app       </Text>
         <Formik
           validationSchema={validationSchema}
           initialValues={{ email: "", password: "", confirmPassword: "" }}
@@ -248,7 +249,7 @@ function LoginScreen() {
                       style={styles.button}
                       onPress={submitForm.bind(values)}
                     >
-                      <Text style={{ color: "#FFF" }}>
+                      <Text style={{ color: "#FFF", fontWeight: 'bold' }}>
                         {" "}
                         {isSignup ? "SignUp" : "Login"}{" "}
                       </Text>
@@ -262,15 +263,22 @@ function LoginScreen() {
                         setIsSignup((prevState) => !prevState);
                       }}
                     >
-                      <Text
-                        style={{
-                          color: "#FFF",
-                          borderBottomWidth: 1,
-                          borderColor: Colors.secondary,
-                        }}
-                      >
-                        {`Switch to ${isSignup ? "Login" : "Sign Up"}`}
-                      </Text>
+                      <View style={{ flexDirection: 'row', borderColor: Colors.secondary, borderBottomWidth: 1 }}>
+                        <Box _text={{ color: Colors.white, fontSize: 18 }}>
+                          Switch to
+                        </Box>
+                        <Text
+                          style={{
+                            color: "#FFF",
+                            borderBottomWidth: 1,
+                            fontSize: 20,
+                            fontWeight: 'bold'
+                          }}
+                        >
+                          {` ${isSignup ? "Login" : "Sign Up"}`}
+                        </Text>
+                      </View>
+
                     </TouchableOpacity>
                   </View>
                 </View>
