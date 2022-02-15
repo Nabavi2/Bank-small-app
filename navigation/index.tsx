@@ -45,7 +45,7 @@ const Stack = createNativeStackNavigator<HomeParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="Card" component={CardScreen} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>

@@ -78,7 +78,7 @@ function LoginScreen() {
           backgroundColor: "black",
         }}
       >
-        <ActivityIndicator size="large" color={Colors.primary} />
+        <ActivityIndicator size="large" color={Colors.secondary} />
       </View>
     );
   }
@@ -96,10 +96,10 @@ function LoginScreen() {
           }}
           source={require("../assets/images/nt.png")}
         /> */}
-        <Text style={{ color: "#FFF", fontSize: 35, marginBottom: "15%", fontWeight: 'bold', marginTop: 100 }}>
+        <Text style={{ color: "#FFF", fontSize: 35, marginBottom: "15%", fontWeight: 'bold', margin: 100, marginHorizontal: 120 }}>
           Welcome
         </Text>
-        <Text style={{ color: "#FFF", fontSize: 20, marginBottom: "15%", alignSelf: 'center', marginHorizontal: 30, }}>
+        <Text style={{ color: "#FFF", fontSize: 20, marginBottom: "15%", alignSelf: 'center', marginHorizontal: 50 }}>
           Start your business on this app       </Text>
         <Formik
           validationSchema={validationSchema}
@@ -216,7 +216,7 @@ function LoginScreen() {
                             }}
                             name="lock"
                             size={28}
-                            color="#FFF"
+                            color={Colors.primary}
                           />
                           <TextInput
                             style={[
