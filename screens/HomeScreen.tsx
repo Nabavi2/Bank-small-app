@@ -23,8 +23,20 @@ export default function HomeScreen() {
         </View>
       </View>
       <HStack justifyContent="flex-end" marginBottom={150}>
-        <Entypo name="dots-three-vertical" size={24} color="#FFF" />
+        <View style={{ alignItems: 'center', justifyContent: 'center', width: 20, height: 30, borderRadius: 2, }}>
+          <Entypo name="dots-three-vertical" size={24} color="#FFF" />
+        </View>
+      </HStack>
+      <HStack style={{ width: 300, alignSelf: 'center', marginBottom: 150, borderRadius: 10, backgroundColor: Colors.primary, height: 50, alignItems: 'center', justifyContent: 'center' }}>
+        <Box _text={{ color: Colors.white, alignSelf: 'center', fontSize: 16, fontWeight: 'bold' }} style={{ backgroundColor: Colors.secondary, height: 40, width: 125, borderRadius: 8, marginRight: 25, justifyContent: 'center' }}>
+          incomings
+        </Box>
+        <View >
 
+        </View>
+        <Box _text={{ color: Colors.white, width: 130, }} >
+          Outgoings
+        </Box>
       </HStack>
     </View>
   );
