@@ -1,5 +1,5 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, Ionicons } from '@expo/vector-icons';
 import { RootStackScreenProps } from '../types';
 import { Box, Card, HStack, VStack, Text, View } from 'native-base';
 import CardComponent from '../components/CardComponent';
@@ -8,6 +8,10 @@ import Colors from '../constants/Colors'
 export default function HomeScreen() {
   return (
     <View flex={1} backgroundColor={Colors.black}>
+      <HStack style={{ justifyContent: 'space-between', marginHorizontal: 20, marginTop: 30, }}>
+        <Ionicons name="chevron-back" size={24} color="#FFF" />
+        <Entypo name="dots-three-vertical" size={24} color="#FFF" />
+      </HStack>
       <View alignItems="center" justifyContent="center" flex="1">
         <View style={styles.icomContainer}>
           <View style={styles.outGoing}>
@@ -22,23 +26,33 @@ export default function HomeScreen() {
           </View>
         </View>
       </View>
-      <HStack justifyContent="flex-end" marginBottom={150}>
-        <View style={{ alignItems: 'center', justifyContent: 'center', width: 20, height: 30, borderRadius: 2, }}>
+      <HStack justifyContent="space-between" marginBottom={70}>
+        <Box _text={{ fontSize: 30, color: Colors.white, marginLeft: 10, marginTop: 5, fontWeight: 'bold' }}>
+          Statistics
+        </Box>
+        <View style={styles.iconView}>
           <Entypo name="dots-three-vertical" size={24} color="#FFF" />
         </View>
       </HStack>
-      <HStack style={{ width: 300, alignSelf: 'center', marginBottom: 150, borderRadius: 10, backgroundColor: Colors.primary, height: 50, alignItems: 'center', justifyContent: 'center' }}>
-        <Box _text={{ color: Colors.white, alignSelf: 'center', fontSize: 16, fontWeight: 'bold' }} style={{ backgroundColor: Colors.secondary, height: 40, width: 125, borderRadius: 8, marginRight: 25, justifyContent: 'center' }}>
+
+      <HStack style={{ width: 300, alignSelf: 'center', marginBottom: 40, borderRadius: 10, backgroundColor: Colors.primary, height: 50, alignItems: 'center', justifyContent: 'center' }}>
+        <Box _text={{ color: Colors.white, alignSelf: 'center', fontSize: 16, fontWeight: 'bold' }} style={{ backgroundColor: Colors.secondary, height: 40, width: 125, borderRadius: 8, marginRight: 35, justifyContent: 'center' }}>
           incomings
         </Box>
-        <View >
 
-        </View>
-        <Box _text={{ color: Colors.white, width: 130, }} >
+        <Box _text={{ color: Colors.white, fontWeight: 'bold' }} style={{ width: 125, paddingLeft: 15, }}  >
           Outgoings
         </Box>
       </HStack>
-    </View>
+      <VStack style={{ alignItems: 'center', justifyContent: 'center', }}>
+        <Box _text={{ color: Colors.white, fontSize: 22, }} style={{ marginBottom: 20 }}>
+          Saved in July
+        </Box>
+        <Box _text={{ fontWeight: 'bold', fontSize: 30, color: Colors.white }} style={{ marginBottom: 100 }}>
+          $12,123,212.05
+        </Box>
+      </VStack>
+    </View >
   );
 }
 
@@ -54,7 +68,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   icomContainer: {
-    borderWidth: 7,
+    borderWidth: 9,
     borderColor: Colors.secondary,
     height: 200,
     width: 200,
@@ -62,9 +76,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderTopColor: Colors.black,
+
   },
   outGoing: {
-    borderWidth: 7,
+    borderWidth: 9,
     borderColor: Colors.primary,
     height: 160,
     width: 160,
@@ -72,5 +87,15 @@ const styles = StyleSheet.create({
     borderTopColor: Colors.black,
     alignItems: 'center',
     justifyContent: 'center',
+
+  },
+  iconView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 45,
+    height: 50,
+    borderRadius: 15,
+    marginRight: 40,
+    backgroundColor: Colors.primary
   }
 });
