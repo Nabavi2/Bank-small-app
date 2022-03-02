@@ -12,6 +12,8 @@ export default function HomeScreen() {
         <Ionicons name="chevron-back" size={24} color="#FFF" />
         <Entypo name="dots-three-vertical" size={24} color="#FFF" />
       </HStack>
+      <Box _text={{ fontSize: 30, color: Colors.white, fontWeight: 'bold' }} style={{ alignSelf: 'center', marginTop: 20, }}>
+        General Report</Box>
       <View alignItems="center" justifyContent="center" flex="1">
         <View style={styles.icomContainer}>
           <View style={styles.outGoing}>
@@ -46,10 +48,10 @@ export default function HomeScreen() {
       </HStack>
       <VStack style={{ alignItems: 'center', justifyContent: 'center', }}>
         <Box _text={{ color: Colors.white, fontSize: 22, }} style={{ marginBottom: 20 }}>
-          Saved in July
+          Saved in January
         </Box>
         <Box _text={{ fontWeight: 'bold', fontSize: 30, color: Colors.white }} style={{ marginBottom: 100 }}>
-          $12,123,212.55
+          $12,122,212.55
         </Box>
       </VStack>
     </View >
