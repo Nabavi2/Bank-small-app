@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import CardComponent from '../components/CardComponent';
-
 import EditScreenInfo from '../components/EditScreenInfo';
 import { HStack, View, VStack, Box } from 'native-base';
 import { Entypo, Ionicons, FontAwesome5, MaterialIcons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
@@ -91,7 +90,6 @@ export default function CardScreen() {
               }}>
                 Feb 23
               </Box>
-
             </View>
           </View>
           <Text fontSize="sm" color={Colors.light0}>$200</Text>
@@ -99,7 +97,6 @@ export default function CardScreen() {
       </Card>
       <SmallCardComponet />
     </View>
-
   );
 }
 
