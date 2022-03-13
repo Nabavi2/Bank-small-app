@@ -51,7 +51,7 @@ export default function HomeScreen() {
           Saved in January
         </Box>
         <Box _text={{ fontWeight: 'bold', fontSize: 30, color: Colors.white }} style={{ marginBottom: 100 }}>
-          $12,122,212.55
+          $12,122,212.67
         </Box>
       </VStack>
     </View >
